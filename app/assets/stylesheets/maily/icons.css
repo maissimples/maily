@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'maily';
-  src:asset-url('maily/icons/maily.eot');
-  src:asset-url('maily/icons/maily.eot?#iefix') format('embedded-opentype'),
-    asset-url('maily/icons/maily.woff') format('woff'),
-    asset-url('maily/icons/maily.ttf') format('truetype'),
-    asset-url('maily/icons/maily.svg#maily') format('svg');
+  src:font-url('maily/icons/maily.eot');
+  src:font-url('maily/icons/maily.eot?#iefix') format('embedded-opentype'),
+    font-url('maily/icons/maily.woff') format('woff'),
+    font-url('maily/icons/maily.ttf') format('truetype'),
+    font-url('maily/icons/maily.svg#maily') format('svg');
   font-weight: normal;
   font-style: normal;
 }

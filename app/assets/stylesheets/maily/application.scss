@@ -5,7 +5,7 @@
   font-weight: light;
   font-style: normal;
   font-family: 'Josefin Sans';
-  src: asset-url('maily/fonts/JosefinSans-Light.ttf') format('truetype');
+  src: font-url('maily/fonts/JosefinSans-Light.ttf');
 }
 
 ::-webkit-input-placeholder {

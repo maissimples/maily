@@ -18,12 +18,12 @@ module Maily
 
     def raw
       content = if @email.parts.present?
-        params[:part] == 'text' ? @email.text_part.body : @email.html_part.body
+        params[:part] == 'text' ? @email.text_part.body.raw_source : htmlized
       else
-        @email.body
+        @email.body.raw_source
       end
 
-      render html: content.raw_source, layout: false
+      render text: content, layout: false
     end
 
     def attachment
@@ -51,6 +51,15 @@ module Maily
     end
 
     private
+
+    def htmlized
+      html = @email.html_part.body.raw_source
+      @email.attachments.each do |attachment|
+        base64_src = "data:#{attachment.mime_type}\;base64,#{attachment.body.encoded}"
+        html.gsub!(attachment.url, base64_src)
+      end
+      html
+    end
 
     def allowed_action?
       Maily.allowed_action?(action_name) || redirect_to(root_path, alert: "Maily: action #{action_name} not allowed!")
